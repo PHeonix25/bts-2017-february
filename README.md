@@ -55,7 +55,7 @@
 ## Working demo of Elastic stack in Docker for local confirmation
     DEMO
       - Set up Docker images of Redis + Elastic Stack
-      - Add [UDPAppender][1] to shoot messages to Redis 
+      - Add UDPAppender[1] to shoot messages to Redis 
       - Demo the messages arriving in ELK
 
 ## What about monitoring?
@@ -70,4 +70,4 @@
 
 > Learning how to connect .Net apps & ELK via Redis
 
-[1]: http://www.s2-industries.com/wordpress/2014/08/logstash-configuration-tips-for-windows-log4net-configuration
+[1] http://www.s2-industries.com/wordpress/2014/08/logstash-configuration-tips-for-windows-log4net-configuration
