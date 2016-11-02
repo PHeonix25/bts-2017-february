@@ -6,6 +6,10 @@
 
 > In this talk, Pat will step us through how we integrate with the Elastic Stack here at Coolblue, using tooling like Log4Net, Seq, Serilog and Redis. Along the way, we'll get introduced to the role of each of these technologies, and as an added bonus, Pat will demo how we can set some of these tools up in Docker containers in order to aid the rapid development and testing feedback cycles that we value here at Coolblue.
 
+# Slides?
+
+Yup, in progress [over here](https://docs.google.com/a/coolblue.eu/presentation/d/1LjQmKwLs92IcK-U7FDlWf6f-r-9x0fFT88sf4UcV7KM/edit?usp=sharing). Let me know if you have any feedback [via Slack](https://coolblue.slack.com/messages/@p.hermens/).
+
 # Talk Notes:
 
 ## What is Elastic Stack (Elk Stack)
