@@ -1,0 +1,6 @@
+# escape=`
+
+FROM microsoft/windowsservercore
+COPY Seq-3.3.23.msi c:\
+RUN c:\Seq-3.3.23.msi
+EXPOSE 5341/tcp
