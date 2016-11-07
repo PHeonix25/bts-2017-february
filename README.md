@@ -1,6 +1,6 @@
 # Behind the Scenes - 2016.12
 
-> At Coolblue, we use the ELK stack (now Elastic stack) to SOMETHING SOMETHING all across the company. Unfortunately (for us .Net back-office guys at least), integration isn't as simple as we'd hoped. Join us for this session where Pat will go through how we integrate with the Elastic Stack - from Development all the way to Production, and Nathan will demonstrate refactoring some of our existing applications to support this new requirement using the Mikado method.
+> At Coolblue, we use the ELK stack (now Elastic stack) to collect and analyse all across the company. Unfortunately (for us .Net back-office guys at least), integration isn't as simple as we'd hoped. Join us for this session where Pat will go through how we integrate with the Elastic Stack - from Development all the way to Production, and Nathan will demonstrate refactoring some of our existing applications to support this new requirement using the Mikado method.
 
 # Using the Elastic Stack as a .Net developer
 
@@ -51,10 +51,14 @@ Yup, in progress [over here](https://docs.google.com/a/coolblue.eu/presentation/
 ### Redis
 > Anonymised screenshots from #Skynet
 
+> Redis is too fast in Prod, so we'll slow it down to demo it  (just don't turn on LogStash yet)
+
 ### Standardisation
 > Ugly screenshot
 
 > Good screenshot 
+
+> Why? - Many apps sending to the same cluster, and we want to very quickly narrow down what's going wrong, and we want to have separate indexes per application for ease of searching/diagnostics. Apps can have different security requirements for pruning.
 
 ## Working demo of Elastic stack in Docker for local confirmation
     DEMO
