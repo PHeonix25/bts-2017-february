@@ -4,7 +4,7 @@
 
 # Using the Elastic Stack as a .Net developer
 
-> In this talk, Pat will step us through how we integrate with the Elastic Stack here at Coolblue, using tooling like Log4Net, Seq, Serilog and Redis. Along the way, we'll get introduced to the role of each of these technologies, and as an added bonus, Pat will demo how we can set some of these tools up in Docker containers in order to aid the rapid development and testing feedback cycles that we value here at Coolblue.
+> In this talk, Pat will step us through how we integrate with the Elastic Stack here at Coolblue, using tooling like Log4Net, Serilog, Seq and Redis. Along the way, we'll get introduced to the role of each of these technologies, and as an added bonus, Pat will demo how we can set some of these tools up in Docker containers in order to aid our rapid development and testing feedback cycles.
 
 # Slides?
 
