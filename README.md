@@ -1,4 +1,4 @@
-# Behind the Scenes - 2016.12
+# Behind the Scenes - 2016.12 - Utilising Elastic Stack in .Net development
 
 > At Coolblue, we use the ELK stack (now Elastic stack) to collect and analyse errors across the whole company. Unfortunately (for us .Net back-office guys at least), integration isn't as simple as we'd hoped. Join us for this session where Pat will go through how we integrate with the Elastic Stack - from Development all the way to Production, and Nathan will demonstrate refactoring some of our existing applications to support this new requirement using the Mikado method.
 
