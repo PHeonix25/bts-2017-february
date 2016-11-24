@@ -1,6 +1,14 @@
 # escape=`
 
-FROM microsoft/windowsservercore
+FROM microsoft/windowsservercore:latest
 COPY Seq-3.3.23.msi c:\
-RUN c:\Seq-3.3.23.msi
+
+SHELL ["powershell", "-Command"]
+RUN Start-Process -FilePath C:\Seq-3.3.23.msi -ArgumentList "/quiet" -Wait
+
+WORKDIR C:\\Program Files\\Seq\\
+RUN Seq.exe install
+
+RUN Restart-Service Seq
+
 EXPOSE 5341/tcp
