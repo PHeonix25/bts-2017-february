@@ -1,4 +1,4 @@
-$containers = docker ps -a -q -f ancestor=servercore-seq:latest;
+$containers = docker ps -a -q -f ancestor=pheonix25/servercore-seq:latest;
 
 Write-Host ''
 

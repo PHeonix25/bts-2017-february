@@ -1,9 +1,11 @@
-# Build the image 
-docker build . -t servercore-seq
+# BUILD THE IMAGE YOURSELF USING THE DOCKERFILE: 
+docker build . -t pheonix25/servercore-seq
+# OR YOU CAN USE MY IMAGE ON DOCKERHUB:
+# docker pull pheonix25/servercore-seq
 
 # Run an instance of the image in the background, opening port 5341 as well
 $hostport = 5341
-$container = docker run -d -t -p 5341:$hostport servercore-seq
+$container = docker run -d -t -p 5341:$hostport pheonix25/servercore-seq
 Write-Host "Docker container started:" $container
 
 # Find the IP of the running container
