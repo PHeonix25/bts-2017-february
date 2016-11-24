@@ -1,5 +1,5 @@
 # BUILD THE IMAGE YOURSELF USING THE DOCKERFILE: 
-docker build . -t pheonix25/servercore-seq
+docker build . -t pheonix25/servercore-seq:latest
 # OR YOU CAN USE MY IMAGE ON DOCKERHUB:
 # docker pull pheonix25/servercore-seq
 
