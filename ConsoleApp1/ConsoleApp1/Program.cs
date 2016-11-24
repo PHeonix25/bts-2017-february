@@ -3,6 +3,9 @@ using System.Linq;
 
 using ConsoleApp1.DTOs;
 
+using log4net;
+using log4net.Config;
+
 namespace ConsoleApp1
 {
     static class Program
@@ -10,34 +13,48 @@ namespace ConsoleApp1
         const string LAST_FM_API_ENDPOINT = "http://ws.audioscrobbler.com/2.0/";
         const string LAST_FM_API_KEY = "48308a6b32cf819c13aa999383c36985";
         const string LAST_FM_MY_USERNAME = "pheonix25";
+        private static ILog _logger;
 
         static void Main(string[] args)
         {
-            MakeWebRequest().DisplaySomeStats();
+            _logger = LogManager.GetLogger(typeof(Program));
+            XmlConfigurator.Configure();
+
+            try
+            {
+                MakeWebRequest().DisplaySomeStats();
+                throw new DivideByZeroException();
+            }
+            catch(Exception ex)
+            {
+                _logger.Fatal($"Something went wrong: {ex}");
+            }
+
             Console.ReadLine();
         }
 
         private static TopTracks MakeWebRequest()
         {
             var query = $"?method=user.gettoptracks&user={LAST_FM_MY_USERNAME}&api_key={LAST_FM_API_KEY}";
-            Console.WriteLine($"Querying: {query} from LastFM.");
-            
+            _logger.Info($"Querying: {query} from LastFM.");
+
             var requester = new Requester(new Uri(LAST_FM_API_ENDPOINT));
             var result = requester.Request<LastFmResponse>(query).Result;
-            Console.WriteLine($"Request returned response code: {result.ResponseStatus}");
+
+            _logger.InfoFormat("Request returned response code: {0}", result.ResponseStatus);
+
             return result.Response;
         }
 
-        private static void DisplaySomeStats(this TopTracks result)
+        private static void DisplaySomeStats(this TopTracks result, int trackCount = 10)
         {
             Console.WriteLine();
-            Console.WriteLine("Printing a list of my 10 most 'scrobbled' tracks");
+            _logger.Info("Printing a list of my 10 most 'scrobbled' tracks");
             Console.WriteLine("------------------------------------------------");
-            foreach(var track in result.Tracks.Take(10))
-                Console.WriteLine($"{track.Rank}:\t'{track.Name}' by {track.Artist.Name}.");
+            foreach(var track in result.Tracks.Take(trackCount))
+                _logger.Info($"{track.Rank}:\t'{track.Name}' by {track.Artist.Name}.");
             Console.WriteLine("------------------------------------------------");
+            _logger.Warn($"There are {result.TotalTracks - trackCount} other tracks not shown above.");
         }
-
-        // http://ws.audioscrobbler.com/2.0/?method=user.gettoptracks&user=pheonix25&api_key=48308a6b32cf819c13aa999383c36985
     }
 }
