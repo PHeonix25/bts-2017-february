@@ -11,7 +11,7 @@ Running `docker-compose up` will build (if not already done) and launch three co
 2. Redis Commander (using the `tenstartups/redis-commander` image, running on port `8081`)
 3. The ELK Stack (using our homegrown image, based off the `sebp/elk` image, running on ports `5000`, `5044`, `5601`, `9200` and `9300`)
 
-The image creation commands for container #3 can be found in the local [dockerfile](dockerfile).
+The image creation commands for container #3 can be found in the local [Dockerfile](Dockerfile).
 
 ## How to get started
 
@@ -70,6 +70,6 @@ I've tried to keep track of most of them so that you don't have to have your Goo
 * [LogStash grok tester](http://grokconstructor.appspot.com/do/match)
 
 ### Special mentions:
-* [MattHodge](https://twitter.com/matthodge) for being my "rubber duck" on a Sunday night when I couldn't get this all working properly and was missing a single dockerfile command!
+* [MattHodge](https://twitter.com/matthodge) for being my "rubber duck" on a Sunday night when I couldn't get this all working properly and was [missing a single Dockerfile command](Dockerfile#L8)!
 * The BtS crew that helped me prep the presentation and were patient while I worked out all the kinks.
 * My wife, for understanding why I was screaming at configuration files late into the night.
