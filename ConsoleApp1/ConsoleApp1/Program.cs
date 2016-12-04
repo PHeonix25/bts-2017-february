@@ -15,8 +15,8 @@ namespace ConsoleApp1
             XmlConfigurator.Configure();
 
             LastFM.MakeWebRequest()
-                .PrintMyTopTracks()
-                .PrintWarningIfThereTracksLeft();
+                  .PrintMyTopTracks()
+                  .PrintWarningIfThereTracksLeft();
 
             try
             {
