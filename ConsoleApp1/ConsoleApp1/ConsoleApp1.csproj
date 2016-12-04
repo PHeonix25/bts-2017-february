@@ -80,6 +80,7 @@
     <Compile Include="DTOs\TopTracks.cs" />
     <Compile Include="DTOs\Track.cs" />
     <Compile Include="HttpRequester.cs" />
+    <Compile Include="LastFM.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
