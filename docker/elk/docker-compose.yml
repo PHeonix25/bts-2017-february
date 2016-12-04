@@ -1,0 +1,27 @@
+version: '2'
+services:
+
+  queue:
+    image: redis
+    ports:
+      - "6379:6379"
+
+  rdsviewer:
+    image: tenstartups/redis-commander
+    ports:
+      - "8081:8081"
+    command:
+        - --redis-host=queue
+    links:
+      - queue
+
+  coolblue-elk:
+    build:
+      context: ./docker/coolblue-elk
+    ports:
+      - "5601:5601"
+      - "9200:9200"
+      - "5044:5044"
+      - "5000:5000"
+    links:
+      - queue
