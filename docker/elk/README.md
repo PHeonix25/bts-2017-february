@@ -41,14 +41,15 @@ Then check [ElasticSearch](http://localhost:9200/_search?pretty) (using `http://
 Check the formatting in the JSON (make sure there's no weird `%{@metadata/_index}` keys or anything)
 Also take note of the `_index` value - that needs to match your Kibana filter!
 
-If your messages aren't in the ElasticSearch search above, there's not a lot of debugging/help available between Redis and ElasticSearch
-So if you've sent corrupt documents, or misconfigured the `conf` files, you'll need to keep an eye on the messages thrown from the docker images themselves!
+If your messages aren't in the ElasticSearch search above, there's not a lot of debugging/help available between Redis and ElasticSearch :(
+So, if you've sent corrupt documents, or misconfigured the `conf` files, you'll need to keep an eye on the messages thrown from the docker images themselves!
 Running `docker-compose up` (i.e.: without the `-d`) will help you find the error messages you need to Google.
 Once everything is running smoothly, you should be able to see the documents appearing in the [ElasticSearch search results](http://localhost:9200/_search?pretty).
 
 Finally, when you first load [Kibana](http://localhost:5601/) (at `http://localhost:5601/`), you'll get asked to provide a "default" key. This should match your `_index` values in your messages.
-Best design is to use something like `log4net_app-*` if you're using our example configurations.
-You will definitely need to set this yourself though!
+Best design is to use something like `my_index_value-*`, where `my_index_value` is your input and the `*` will work for the date part.
+You will definitely need to think about what makes sense for you and set this properly!
+(You can modify it later, it's just a pain, and we are working in Docker containers, so you could just blow it away and start again, but just give it some thought, would ya?)
 
 If you got this far, then you should have everything you need in Kibana, so happy `Discover`-ing. 
  
