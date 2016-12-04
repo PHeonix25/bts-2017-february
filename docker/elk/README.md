@@ -5,7 +5,7 @@ designed for intercepting, manipulating, and loading flat strings sent over UDP 
 
 ## What does it run?
 
-Running `docker-compose up` will build (if not already done) and launch three containers:
+Running `docker-compose up` will build (if not already built) and launch three containers:
 
 1. Redis (using the standard `redis` image, running on port `6379`)
 2. Redis Commander (using the `tenstartups/redis-commander` image, running on port `8081`)
@@ -15,7 +15,8 @@ The image creation commands for container #3 can be found in the local [Dockerfi
 
 ## How to get started
 
-*NOTE to **Docker on Windows** people: Make sure you're using Linux containers!*
+> _NOTE to **Docker on Windows** people: Make sure you're using **Linux containers**!_
+
 It's nice and simple, just run `docker-compose up -d` and you're done.
 
 For the purposes of debugging, you can leave off the `-d` and just use `docker-compose up` to check the streaming logs for errors. 
@@ -27,7 +28,7 @@ These apps do log very well by default, so read carefully!
 2. Open the Kibana interface at `http://localhost:5601/`
 3. Create an index in Kibana named `log4net_app-*`
 
-*NOTE: If you've changed the config files (specifically, [30-output.conf](configs/30-output.conf), then you'll need to change the value for the index in Step 3)*
+> _NOTE: If you've changed the config files (specifically, [30-output.conf](configs/30-output.conf), then you'll need to change the value for the index in Step 3)_
 
 ## Checking the results
 
@@ -53,7 +54,8 @@ If you got this far, then you should have everything you need in Kibana, so happ
  
 ## ...and thanks!
 
-I've used quite a few tools to set all this up and confirm the behaviour along the way. 
+I've used quite a few tools to set all this up and confirm the behaviour along the way! 
+
 I've tried to keep track of most of them so that you don't have to have your Google-fu at full power when you start modifying this and get stuck, so here they are, loosely grouped by category:
 
 ### Log4Net UDPAppender debugging
