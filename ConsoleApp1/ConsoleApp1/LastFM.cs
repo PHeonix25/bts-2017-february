@@ -13,10 +13,11 @@ namespace ConsoleApp1
 {
     static class LastFM
     {
-        private static ILog _logger;
+        private static readonly ILog _logger;
         const string LAST_FM_API_ENDPOINT = "http://ws.audioscrobbler.com/2.0/";
-        const string LAST_FM_API_KEY = "48308a6b32cf819c13aa999383c36985";
-        const string LAST_FM_MY_USERNAME = "pheonix25";
+        const string LAST_FM_METHODNAME = "user.gettoptracks";
+        const string LAST_FM_APIKEY = "48308a6b32cf819c13aa999383c36985";
+        const string LAST_FM_USERNAME = "pheonix25";
 
         static LastFM()
         {
@@ -26,7 +27,7 @@ namespace ConsoleApp1
 
         public static TopTracks MakeWebRequest()
         {
-            var query = $"?method=user.gettoptracks&user={LAST_FM_MY_USERNAME}&api_key={LAST_FM_API_KEY}";
+            var query = $"?method={LAST_FM_METHODNAME}&user={LAST_FM_USERNAME}&api_key={LAST_FM_APIKEY}";
             _logger.Info($"Querying: {query} from LastFM.");
 
             var requester = new Requester(new Uri(LAST_FM_API_ENDPOINT));
@@ -50,7 +51,7 @@ namespace ConsoleApp1
             return result.Tracks.Skip(trackCount);
         }
 
-        public static void PrintWarningIfThereTracksLeft(this IEnumerable<Track> tracks)
+        public static void PrintWarningIfThereAreTracksLeft(this IEnumerable<Track> tracks)
         {
             _logger.Warn($"There are {tracks.Count()} other tracks not shown.");
         }
