@@ -14,7 +14,7 @@ Write-Host "Docker container IP:" $ip
 
 # Launch the browser so that we can check our work
 $seq_url = 'http://'+ $ip + ':' + $hostport + '/'
-start $seq_url
+Start-Process $seq_url
 Write-Host "Browser launched, pointing at" $seq_url
 
 # Attach to the running container (for debug purposes)
