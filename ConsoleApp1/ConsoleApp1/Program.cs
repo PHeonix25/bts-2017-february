@@ -16,11 +16,11 @@ namespace ConsoleApp1
 
             LastFM.MakeWebRequest()
                   .PrintMyTopTracks()
-                  .PrintWarningIfThereTracksLeft();
+                  .PrintWarningIfThereAreTracksLeft();
 
             try
             {
-                throw new DivideByZeroException();
+                throw new DivideByZeroException("Deliberate, for the demo!");
             }
             catch(Exception ex)
             {
