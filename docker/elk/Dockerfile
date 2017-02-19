@@ -1,4 +1,4 @@
-FROM sebp/elk
+FROM sebp/elk:es241_l240_k461
 
 # updating filters
 ADD ./configs/03-redis.conf /etc/logstash/conf.d/03-redis.conf
